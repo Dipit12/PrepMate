@@ -1,5 +1,5 @@
 const User = require("../models/userSchema");
-
+const bcrypt = require("bcrypt")
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
@@ -14,7 +14,8 @@ const loginUser = async (req, res) => {
     }
 
     // Correct password comparison
-    if (userExists.password === password) {
+    const isValid = await bcrypt.compare(password, userExists.password)
+    if (isValid) {
         console.log("Logged in successfully");
         return res.redirect("/dashboard");  // Redirect without JSON response
     } else {
@@ -33,8 +34,8 @@ const registerUser = async (req, res) => {
     if (userExists) {
         return res.status(400).json({ msg: "User already exists.. please go to the login page" });
     }
-
-    const newUser = await User.create({ username, email, password });
+    const hashedPass = await bcrypt.hash(password,13)
+    const newUser = await User.create({ username, email, password: hashedPass });
     if (newUser) {
         console.log("New user created");
         return res.redirect("/dashboard");
