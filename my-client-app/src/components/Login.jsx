@@ -18,7 +18,7 @@ const Login = () => {
         </div>
         <div className='my-15'>
           <input type="password" placeholder='Your Password' className='p-2 border-b-2 w-120 border-gray-600 placeholder-white'/>
-          <img src = {lockIcon} className = " w-[39px] h-[40px] absolute right-56 bottom-93"alt = "user-icon"></img>
+          <img src = {lockIcon} className = " w-[39px] h-[40px] absolute right-56 bottom-93" alt = "user-icon"></img>
         </div>
         <div className='my-10'>
           <button className='bg-[#0086FF] px-55 py-2 rounded-lg'>Login </button>
