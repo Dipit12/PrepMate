@@ -1,13 +1,16 @@
 
 import React from 'react'
 import Login from './components/Login' 
-import Registration from './components/Registration'
+import Registeration from './components/Registration'
+import { Routes, Route, Link } from 'react-router-dom'
 
 const App = () => {
   return (
     <div>
-      <Registration />
-      <Login />
+      <Routes>
+        <Route path = "/register" element = {< Registeration/>} />
+        <Route path = "/login" element = {< Login/>} />
+      </Routes>
     </div>
   )
 }
