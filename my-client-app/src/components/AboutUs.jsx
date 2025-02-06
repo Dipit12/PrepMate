@@ -10,18 +10,18 @@ const AboutUs = () => {
   const fullTextParagraph = `PrepMate, created by four VIT University CSE students, is a platform designed to help university students succeed. We offer quizzes based on uploaded materials and YouTube videos, along with concise video summaries, and more. Our team consists of two frontend developers, a backend developer, and a designer, all working together to make studying easier and more effective.`;
 
   const [paragraphAnimationStarted, setParagraphAnimationStarted] = useState(false);
-  const aboutUsRef = useRef(null); // Ref for the "ABOUT US" div
+  const aboutUsRef = useRef(null); 
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           startAnimations();
-          observer.unobserve(aboutUsRef.current); // Stop observing once triggered
+          observer.unobserve(aboutUsRef.current); 
         }
       },
       {
-        threshold: 0.5, // Adjust threshold as needed (0.5 = 50% visible)
+        threshold: 0.5, 
       }
     );
 
@@ -75,7 +75,7 @@ const AboutUs = () => {
         backgroundImage: `url(${Desktop})`
       }}
     >
-      <div className='w-[900px] h-[600px]' ref={aboutUsRef}> {/* Ref added here */}
+      <div className='w-[900px] h-[600px]' ref={aboutUsRef}> 
         <div className='text-9xl font-poppins font-[900] text-fuchsia-100 opacity-40 mx-20 mt-40'>
           {aboutUsText}
         </div>
