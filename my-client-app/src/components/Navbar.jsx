@@ -16,15 +16,15 @@ const Navbar = ({ text, isDashboard })=>{
                             {isDashboard && (
                                 <div className = "flex items-center ml-35 mt-1">
                                    <Link 
-                                    to="/youtube-summariser" 
+                                    to="/youtubeSummarizer" 
                                     className="relative font-poppins p-3 mt-7 mr-10 text-l font-[700] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white hover:text-white"
                                     >
                                     Youtube Summariser
                                     <span className="absolute left-0 bottom-0 block h-0.5 bg-white transition-all duration-300 transform scale-x-0 hover:w-full"></span>
                                     </Link>
 
-                                    <Link to = "/youtube-summariser" className = "p-3 mt-7 mr-10 font-poppins  text-l font-[700] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white hover:text-white">Flash Cards</Link>
-                                    <Link to = "/youtube-summariser" className = "p-3 mt-7 font-poppins  text-l font-[700] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white hover:text-white">Youtube Summariser</Link>
+                                    <Link to = "/flash-card-form" className = "p-3 mt-7 mr-10 font-poppins  text-l font-[700] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white hover:text-white">Flash Cards</Link>
+                                    <Link to = "/youtubeSummarizer" className = "p-3 mt-7 font-poppins  text-l font-[700] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white hover:text-white">Youtube Summariser</Link>
                                 </div>
                             )}
                             <button
