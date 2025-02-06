@@ -5,6 +5,7 @@ const loginRoutes = require("./routes/loginRoutes")
 const sequelize = require("./utils/dbConnection")
 const app  = express()
 const PORT = 3000;
+app.use(cors())
 // Parse JSON bodies
 app.use(express.json());
 // Parse URL-encoded bodies (if needed)
