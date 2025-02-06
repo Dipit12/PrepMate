@@ -6,7 +6,7 @@ const AboutUs = () => {
   const [aboutUsText, setAboutUsText] = useState("");
   const fullTextAboutUs = "ABOUT US";
 
-  const [paragraphText, setParagraphText] = useState(""); // Now a single string
+  const [paragraphText, setParagraphText] = useState("");
   const fullTextParagraph = `PrepMate, created by four VIT University CSE students, is a platform designed to help university students succeed. We offer quizzes based on uploaded materials and YouTube videos, along with concise video summaries, and more. Our team consists of two frontend developers, a backend developer, and a designer, all working together to make studying easier and more effective.`;
 
   const [paragraphAnimationStarted, setParagraphAnimationStarted] = useState(false);
@@ -19,12 +19,12 @@ const AboutUs = () => {
         aboutUsIndex++;
       } else {
         clearInterval(aboutUsInterval);
-        setTimeout(() => { // Start paragraph animation after ABOUT US is done
+        setTimeout(() => {
           setParagraphAnimationStarted(true);
           animateParagraph();
-        }, 50); // 1-second delay before paragraph starts
+        }, 50);
       }
-    }, 200); // 1-second delay for ABOUT US letters
+    }, 200);
 
     const animateParagraph = () => {
       let charIndex = 0;
@@ -35,17 +35,15 @@ const AboutUs = () => {
         } else {
           clearInterval(paragraphInterval);
         }
-      }, 5); // Adjust speed here
+      }, 5);
 
       return () => clearInterval(paragraphInterval);
     };
 
     return () => {
       clearInterval(aboutUsInterval);
-      // Paragraph interval is cleared inside animateParagraph
     };
   }, []);
-
 
   return (
     <div
@@ -56,23 +54,16 @@ const AboutUs = () => {
         backgroundImage: `url(${Desktop})`
       }}
     >
-      <div className='w-[900px] h-[600px] '>
+      <div className='w-[900px] h-[600px]'>
         <div className='text-9xl font-poppins font-[900] text-fuchsia-100 opacity-40 mx-20 mt-40'>
           {aboutUsText}
         </div>
-        <div className={`mx-20 my-20 text-2xl font-[500] opacity-70 transition-colors duration-500 text-white`}
-          style={{ transition: 'color 0.5s ease' }}
-        >
-          {paragraphAnimationStarted && ( // Conditionally render the paragraph
-            <p>
-              {paragraphText}
-            </p>
-          )}
+        <div className='mx-20 my-20 text-2xl font-[500] text-white opacity-90 transition-colors duration-500'>
+          {paragraphAnimationStarted && <p>{paragraphText}</p>}
         </div>
       </div>
-
       <div>
-        <img src={OBJECTS} className='w-[650px] h-[350px] my-50' alt="Objects" />
+        <img src={OBJECTS} className='w-[650px] h-[350px] my-50' alt='Objects' />
       </div>
     </div>
   );

@@ -5,8 +5,7 @@ import userIcon from "../assets/user_icon.png";
 import mailIcon from "../assets/mail_icon.png";
 import lockIcon from "../assets/Lock.png";
 import backArrow from "../assets/back.png";
-
-
+import PMlogo from "../assets/PMLogo.svg";
 const Registration = () => {
   
     const navigate = useNavigate();
@@ -19,9 +18,10 @@ const Registration = () => {
     <div className="flex justify-center items-center h-screen">
       <div className="flex w-[1304px] h-[794px] bg-[rgba(254,255,255,0.14)] rounded-[32px]">
         <div className="Logo w-[326px] h-[97px] relative">
-        <h1 className="font-poppins text-8xl font-[600] absolute top-80 left-30 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-white">
-          PrepMate
-        </h1>
+          <div className = "absolute top-80 left-30 w-[600px]">
+            <img src = {PMlogo} className = "w-[400px]"></img>
+          </div>
+          
 
         </div>
         <div className="user-input absolute top-20 right-55">
