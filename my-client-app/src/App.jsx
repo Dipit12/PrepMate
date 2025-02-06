@@ -5,6 +5,8 @@ import Registeration from './components/Registration'
 import { Routes, Route} from 'react-router-dom'
 import Landing from './components/Landing'
 import Footer from './components/footer'
+import Verify from './components/Verify'
+
 const App = () => {
   return (
     <div>
@@ -12,6 +14,7 @@ const App = () => {
         <Route path = "/register" element = {< Registeration/>} />
         <Route path = "/login" element = {< Login/>} />
         <Route path = "/" element = {<Landing />} />
+        <Route path = "/verify" element = {<Verify />} />
       </Routes>
 
       <Footer />
