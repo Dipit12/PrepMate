@@ -58,8 +58,7 @@ const Registration = () => {
               </div>
             </form>
 
-            <h2 className = "text-white font-poppins mt-6 absolute left-40">Already have an account? <span className = "ml-1"> <Link to = "/login" className = " text-[rgba(0,134,255,1)] font-[700] text-xl hover:underline"> Login</Link></span></h2>
-            <h2 className = "text-white font-poppins mt-15 absolute left-43">Forgot password?<span className = "ml-1"> <Link to = "/reset" className = " text-[rgba(0,134,255,1)] font-[700] text-xl hover:underline">Reset</Link></span></h2>
+            <h2 className = "text-white font-poppins mt-7 absolute left-40">Already have an account? <span className = "ml-1"> <Link to = "/login" className = " text-[rgba(0,134,255,1)] font-[700] text-xl hover:underline"> Login</Link></span></h2>
           </div>
 
         </div>

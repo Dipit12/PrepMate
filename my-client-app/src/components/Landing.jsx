@@ -98,7 +98,7 @@ const Landing = ()=>{
                 <div className = " relative top-[0px] w-full h-screen bg-cover bg-center" style = {{backgroundImage:`url(${bgpic})`}}>
 
                     <div className = "flex justify-end m-10 mr-20">
-                        <h1 className="font-oxygen text-6xl font-[800] uppercase tracking-wide text-[rgba(255,255,255,0.7)] m-0">FEATURES</h1>
+                        <h1 className=" p-10 font-Oxygen text-9xl font-[700] uppercase tracking-wide text-[rgba(190,178,255,0.7)]">FEATURES</h1>
                     </div>
                     
                     <div className = "flex m-50">
