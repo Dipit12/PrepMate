@@ -9,3 +9,6 @@
 } */
 =======
 >>>>>>> 6fe52c3 (Initial Commit)
+html {
+    scroll-behavior: smooth;
+  }

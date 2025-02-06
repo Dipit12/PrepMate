@@ -4,7 +4,7 @@ import axios from 'axios';
 import userIcon from "../assets/user_icon.png";
 import mailIcon from "../assets/mail_icon.png";
 import lockIcon from "../assets/Lock.png";
-import backArrow from "../assets/back.png";
+import backArrow from "../assets/ba.svg";
 import PMlogo from "../assets/PMLogo.svg";
 
 const Registration = () => {

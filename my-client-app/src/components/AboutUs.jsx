@@ -21,7 +21,7 @@ const AboutUs = () => {
         }
       },
       {
-        threshold: 0.5, 
+        threshold: 0.2, 
       }
     );
 
@@ -75,11 +75,11 @@ const AboutUs = () => {
         backgroundImage: `url(${Desktop})`
       }}
     >
-      <div className='w-[900px] h-[600px]' ref={aboutUsRef}> 
+      <div className='w-[950px] h-[600px]' ref={aboutUsRef}> 
         <div className='text-9xl font-poppins font-[900] text-fuchsia-100 opacity-40 mx-20 mt-40'>
           {aboutUsText}
         </div>
-        <div className='mx-20 my-20 text-2xl font-[500] text-white opacity-90 transition-colors duration-500'>
+        <div className='mx-20 my-20 text-2xl font-[500] text-white opacity-90 transition-colors duration-200'>
           {paragraphAnimationStarted && <p>{paragraphText}</p>}
         </div>
       </div>
