@@ -82,12 +82,12 @@ export default function FC() {
                             type="file"
                             accept=".pdf,.ppt,.pptx"
                             onChange={handleFileChange}
-                            className="mt-10 p-2 rounded-md border-1 w-[500px] text-white focus:outline"
+                            className="mt-70 ml-85 p-2 rounded-md border-1 w-[500px] text-white focus:outline"
                         />
                         <button 
                             type="submit" 
                             disabled={isLoading}
-                            className="mt-5 w-[500px] h-[40px] bg-[rgba(0,134,255,1)] rounded-xl text-white text-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+                            className="mt-8 ml-85 w-[500px] h-[40px] bg-[rgba(0,134,255,1)] rounded-xl text-white text-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
                         >
                             {isLoading ? "Processing..." : "Upload"}
                         </button>

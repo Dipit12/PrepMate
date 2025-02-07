@@ -57,11 +57,11 @@ const Login = () => {
   };
 
   return (
-    <div className='flex justify-center items-center h-screen bg-gray-900'>
+    <div className='flex justify-center items-center h-screen bg-black-900'>
       <div className='w-[1300px] h-[650px] bg-[#1E1E1E] rounded-3xl flex shadow-lg'>
         
         {/* Left Side: Logo */}
-        <div className='absolute top-80 left-70 w-[600px] flex justify-center'>
+        <div className='absolute top-80 left-30 w-[600px] flex justify-center'>
           <img src={PMlogo} className='w-[400px]' alt='PM Logo' />
         </div>
 
