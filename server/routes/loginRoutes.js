@@ -4,7 +4,8 @@ const loginControllers = require("../controllers/loginController");
 const multer = require("multer");
 
 
-
+const fs = require("fs");
+const uploadDir = "uploads";
 
 router.get("/", (req, res) => {
     res.send("<h1>Landing Page </h1>");
@@ -17,35 +18,43 @@ router.get("/dashboard", (req, res) => {
     res.send("<h1>Dashboard</h1>");
 });
 
-// const storage = multer.diskStorage({
-//     destination: 'uploads/',
-//     filename: (req, file, cb) => {
-//         cb(null, Date.now() + '-' + file.originalname);
-//     }
-// });
+const storage = multer.diskStorage({
+    destination: 'uploads/',
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + '-' + file.originalname);
+    }
+});
 
-// const upload = multer({ 
-//     storage: storage,
-//     fileFilter: (req, file, cb) => {
-//         const allowedTypes = [
-//             'application/pdf',
-//             'application/vnd.ms-powerpoint',
-//             'application/vnd.openxmlformats-officedocument.presentationml.presentation'
-//         ];
+const upload = multer({ 
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        const allowedTypes = [
+            'application/pdf',
+            'application/vnd.ms-powerpoint',
+            'application/vnd.openxmlformats-officedocument.presentationml.presentation'
+        ];
         
-//         if (allowedTypes.includes(file.mimetype)) {
-//             cb(null, true);
-//         } else {
-//             cb(new Error('Invalid file type. Only PDF and PPT files are allowed.'));
-//         }
-//     }
-// });
-// router.post("/flashcard", upload.single("file"), loginControllers.flashCard);
-// // Add error handling middleware
-// router.use((error, req, res, next) => {
-//     console.error('Route error:', error);
-//     res.status(400).json({ error: error.message });
-// });
+        if (allowedTypes.includes(file.mimetype)) {
+            cb(null, true);
+        } else {
+            cb(new Error('Invalid file type. Only PDF and PPT files are allowed.'));
+        }
+    },
+    limits: {
+        fileSize: 10 * 1024 * 1024, // 10MB limit
+    }
+});
+
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+}
+
+router.post("/flashcard", upload.single("file"), loginControllers.flashCard);
+// Add error handling middleware
+router.use((error, req, res, next) => {
+    console.error('Route error:', error);
+    res.status(400).json({ error: error.message });
+});
 // // Routes
 
 module.exports = router;

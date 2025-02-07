@@ -1,56 +1,105 @@
-import React,{ useState } from "react";
-import PMlogo from "../assets/PMLogo.svg"
-import {useNavigate} from "react-router-dom"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import PMlogo from "../assets/PMLogo.svg";
 import Arrow_right from "../assets/Arrow_right.svg";
-const FC = () =>{
+
+export default function FC() {
     const navigate = useNavigate();
-    const goBack = () => {
-        navigate("/dashboard");
-    }
     const [selectedFile, setSelectedFile] = useState(null);
-    const handleFileChange = (e) =>{
-        const file = e.target.files[0];
-        if (file && (file.name.endsWith('.pdf') || file.name.endsWith('.ppt') || file.name.endsWith('.pptx'))){
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
             setSelectedFile(file);
-        }else{
-            alert('Please upload a valid file format (.pptx) or PDF (.pdf) file.');
+            setError(null);
         }
     };
-    return(
-        <>
-            <div className="flex justify-center items-center h-screen">
-                        <div className="flex w-[1304px] h-[794px] bg-[rgba(254,255,255,0.14)] rounded-[32px]">
-                            <div className="Logo w-[326px] h-[97px] relative">
-                                <div className="absolute top-80 left-30 w-[600px]">
-                                    <img src={PMlogo} className="w-[400px]" alt="PM Logo" />
-                                </div>
-                            </div>
-                            <div className="user-input absolute w-100px top-27 right-48">
-                                <h1 className="text-white font-poppins text-5xl font-[700]">Flash Cards Generator</h1>
-                                <h3 className="text-white font-poppins text-2xl font-[600] mt-5">Upload the presentation(PPT) or document(PDF) below</h3>
-                            </div>
 
-                            <form className = "flex flex-col">
-                                <input 
-                                type = "file"
-                                accept = ".ppt, .pptx, .pdf"
-                                onChange = {handleFileChange}
-                                placeholder = "Enter PPT or PDF document"
-                                className = "mt-90 ml-90 p-2 rounded-md border-1  w-[500px] placeholder-white text-white focus:outline"
-                                />
-                                <button type="submit" className="mt-13 ml-89 w-[500px] h-[40px] bg-[rgba(0,134,255,1)] rounded-xl text-white text-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                Upload
-                                 </button>
-                            </form>
-                        </div>
-
-                        <button onClick = {goBack}>
-                                <img src = {Arrow_right} className = " cursor-pointer w-[55px] h-[auto] absolute top-15 left-35" alt="Back Arrow"></img>
-                        </button>
-            </div>
-        </>
-    )
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        
+        if (!selectedFile) {
+            setError("Please select a file first.");
+            return;
+        }
+        
+        setIsLoading(true);
+        setError(null);
+        
+        const formData = new FormData();
+        formData.append("file", selectedFile);
     
-}
+        try {
+            console.log("Sending request to server...");
+            const response = await fetch("http://localhost:3000/flashcard", { 
+                method: "POST",
+                body: formData,
+            });
+    
+            console.log("Response status:", response.status);
+            
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || "Failed to upload file");
+            }
+    
+            const data = await response.json();
+            console.log("Received data:", data);
+    
+            if (data.flashCards && Array.isArray(data.flashCards)) {
+                console.log("Navigating to flash-cards page...");
+                navigate("/flash-cards", { 
+                    state: { flashCards: data.flashCards },
+                    replace: true
+                });
+            } else {
+                throw new Error("Invalid response format");
+            }
+        } catch (error) {
+            console.error("Error during file upload:", error);
+            setError(error.message || "Failed to process the file. Please try again.");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+    return (
+        <div className="flex justify-center items-center h-screen">
+            <div className="flex w-[1304px] h-[794px] bg-[rgba(254,255,255,0.14)] rounded-[32px]">
+                <div className="Logo w-[326px] h-[97px] relative">
+                    <div className="absolute top-80 left-30 w-[600px]">
+                        <img src={PMlogo} className="w-[400px]" alt="PM Logo" />
+                    </div>
+                </div>
+                <div className="user-input absolute w-100px top-27 right-48">
+                    <h1 className="text-white font-poppins text-5xl font-[700]">Flash Cards Generator</h1>
+                    <h3 className="text-white font-poppins text-2xl font-[600] mt-5">Upload your document below</h3>
+                </div>
 
-export default FC
+                <form onSubmit={handleSubmit} className="flex flex-col items-center mt-20">
+                        <input 
+                            type="file"
+                            accept=".pdf,.ppt,.pptx"
+                            onChange={handleFileChange}
+                            className="mt-10 p-2 rounded-md border-1 w-[500px] text-white focus:outline"
+                        />
+                        <button 
+                            type="submit" 
+                            disabled={isLoading}
+                            className="mt-5 w-[500px] h-[40px] bg-[rgba(0,134,255,1)] rounded-xl text-white text-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+                        >
+                            {isLoading ? "Processing..." : "Upload"}
+                        </button>
+                        {error && (
+                            <p className="mt-4 text-red-500">{error}</p>
+                        )}
+                </form>
+            </div>
+
+            <button onClick={() => navigate("/dashboard")}>
+                <img src={Arrow_right} className="cursor-pointer w-[55px] h-[auto] absolute top-15 left-35" alt="Back Arrow" />
+            </button>
+        </div>
+    );
+}

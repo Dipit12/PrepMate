@@ -1,0 +1,700 @@
+
+
+Module 1 -Introduction to Languages and
+Grammars
+Lecture Topic
+Overview of a Computational Models
+Contents  
+1.Chomsky Hierarchy
+2.Basic terminologies
+3.Strings and its operations
+4.Languages and its operations
+Dr. Sri Preethaa K R / SCOPE/ VIT1
+
+Chomsky Hierarchy
+LanguageGrammarMachineExample
+Type 3Regular languages
+Regular grammars
+• Right-linear grammars
+• Left-linear grammars
+Finite-state 
+automata
+a*
+Type 2Context-free languagesContext-free grammars
+Push-down 
+automata
+a
+n
+b
+n
+Type 1Context-sensitive languagesContext-sensitive grammars
+Linear-bound 
+automata
+a
+n
+b
+n
+c
+n
+Type 0
+Recursive languages
+Recursively enumerable 
+languages
+Unrestricted grammars
+Turing 
+machines
+any 
+computable 
+function
+2
+
+Theory of Computation
+Basic terminologies
+•Symbol - A symbol (often also called acharacter) is the smallest building block, which can be any 
+alphabet, letter, or picture.
+•Alphabet (Σ) : Finite, nonempty  set of symbols which are alwaysfinite.
+•Examples:
+• = {0, 1}: binary alphabet
+• = {a, b, c, ..., z}: the set of all lower case letters
+•The set of all ASCII characters
+•String- A string is afinitesequence of symbols from some alphabet . A string is generally denoted 
+aswand the length of a string is denoted as|w|.
+•Examples:
+•01101 where  = {0, 1}
+•abracadabra where  = {a, b, c, ..., z}
+Dr. Sri Preethaa K R / SCOPE/ VIT3
+
+Theory of Computation
+•Empty String: The string with zero occurrences of symbols from  and is denoted e or 
+•Length of String: Number of symbols in the string
+•The length of a string w is usually written |w|
+•|1010| = 4
+•|| = 0
+•|uv| = |u| + |v|
+•Reverse : w
+R
+• If w = abc, w
+R
+ = cba
+•Concatenation: if x and y are strings, then xy is the string obtained by placing a copy of y immediately 
+after a copy of x
+•x = a
+1
+a
+2
+ ...a
+i
+, y = b
+1
+b
+2
+ ...b
+j
+•xy = a
+1
+a
+2
+ ...a
+i
+b
+1
+b
+2
+ ...b
+j
+•Example: x = 01101, y = 110, xy = 01101110
+•x = x = x 
+Dr. Sri Preethaa K R / SCOPE/ VIT4
+
+Theory of Computation
+Example
+•Number of Strings (of length 2) 
+•that can be generated over the alphabet {a, b}:
+-   -
+                     a   a
+                     a   b
+                     b   a
+                     b   b
+•Length of String |w| = 2
+•Number of possible Strings = 4
+Therefore 
+•For alphabet {a, b} with length n, number of strings can be generated = 2
+ n
+.
+•Let Σ = {a, b} be an alphabet; then aa, ab, bba, baaba, . . . are some examples of strings over Σ.
+Dr. Sri Preethaa K R / SCOPE/ VIT5
+
+string operations
+Closure Representation
+•L
++
+: It is aPositive Closurethat represents a set of all strings except Null or ε-strings.
+•L
+*
+: It is “Kleene Closure“, that represents the occurrence of certain alphabets for given language alphabets 
+from zero to the infinite number of times. In which ε-string is also included.
+•Let Σ = {a, b} be an alphabet; then aa, ab, bba, baaba, . . . are some examples of strings over Σ.
+•The set of all strings over an alphabet Σ is denoted by Σ∗ .
+L* = εL+
+Dr. Sri Preethaa K R / SCOPE/ VIT6
+
+string operations
+Example:
+(a) Regular expression for language accepting all combination of g's over Σ={g}:
+                                         R = g*
+                               R={ε,g,gg,ggg,gggg,ggggg,...}
+(b) Regular Expression for language accepting all combination of g's over Σ={g} :    R = g+
+                               R={g, gg, ggg, gggg, ggggg, gggggg,...}
+Example:
+Input String: "GFG".
+Σ* = { ε,"GFG","GGFG","GGFG","GFGGGGGGGG","GGGGGGGGFFFFFFFFFGGGGGGGG",...} 
+•For example, if Σ = {0, 1}, then Σ ∗ = {ε, 0, 1, 00, 01, 10, 11, 000, 001, . . .}.
+Dr. Sri Preethaa K R / SCOPE/ VIT7
+
+Languages
+Language
+A language is aset of strings, chosen from some Σ* or we can say-‘A language is a subset of Σ*‘. A language 
+that can be formed over ‘ Σ ‘ can beFiniteorInfinite. Note : , |{ε}| = 1.
+•A language is a subset of 
+*
+•Example of languages:
+•The set of valid Arabic words
+•The set of strings consisting of n 0’s followed by n 1’s
+•{, 01, 0011, 000111, ...}
+• The set of strings with equal number of 0’s and 1’s
+•{, 01, 10, 0011, 0101, 1010, 1001, 1100, ...}
+•Empty language:  = { }
+•The language  consisting of the empty string
+•Note:   
+Example of Finite Language: 
+Dr. Sri Preethaa K R / SCOPE/ VIT8
+
+Languages
+Language
+Since languages are sets, we can apply various well known set operations such as union, intersection, 
+complement, difference on languages. 
+The notion of concatenation of strings can be extended to languages as follows.
+1. The concatenation of a pair of languages L1, L2 is
+L1. L2 = {xy | x ∈ L1 ∧ y ∈ L2}.
+Example 2.2.3.
+1. If L1 = {0, 1, 01} and L2 = {1, 00}, then L1.L2 = {01, 11, 011, 000, 100, 0100}.
+2. For L1 = {b, ba, bab} and L2 = {ε, b, bb, abb}, we have L1.L2 = {b, ba, bb, bab, bbb, babb, baabb, babbb, bababb}.
+Dr. Sri Preethaa K R / SCOPE/ VIT9
+
+Strings and Languages (4)
+•Power of an Alphabet: 
+k
+ = the set of strings of length k with symbols from S  
+•Example:  = {0, 1}
+•S
+1
+ = S = {0, 1} 
+•S
+2
+ = {00, 01, 10, 11} 
+•S
+0
+ = {e} 
+•Question: How many strings are there in S
+3
+?
+•The set of all strings over  is denoted 
+*
+ 
+•S
+*
+ = S
+0
+  S
+1
+  S
+2
+  S
+3
+  ...
+•Also 
+•S
++
+ =  S
+1
+  S
+2
+  S
+3
+  ...
+•S
+*
+ = S
++
+  {e}
+•S
++
+ = S
+*
+ - {e}
+10
+
+Strings and Languages (5)
+•Substring: any string of consecutive characters in some string w
+•If w = abc
+•e, a, ab, abc are substrings of w
+•Prefix and suffix:
+•if w = vu
+•v is a prefix of w
+•u is a suffix of w
+•Example
+•If w = abc
+•a, ab , abc are prefixes of w
+•c, bc, abc are suffixes of w
+•Suppose:  S is the string  banana
+•Prefix  :  ban,  banana
+•Suffix  :  ana, banana
+•Substring :  nan, ban, ana, banana
+11
+
+Basic terminologies
+1.Since concatenation of strings is associative, so is the concatenation of languages. 
+That is, for all languages L1, L2 and L3,
+(L1.L2).L3 = L1.(L2.L3).
+Hence, (L1L2)L3 may simply be written as L1.L2.L3.
+2. The number of strings in L1L2 is always less than or equal to the product of individual numbers, i.e.
+|L1.L2| ≤ |L1|.|L2|.
+3. L1 ⊆ L1.L2 if and only if ε ∈ L2.
+4. Similarly, ε ∈ L1 if and only if L2 ⊆ L1. L2.
+Dr. Sri Preethaa K R / SCOPE/ VIT12
+
+Basic terminologies
+1. Kleene star of the language {01} is {ε, 01, 0101, 010101, . . .} = {(01) 
+n
+ / | n ≥ 0}.
+2. If L = {0, 10}, then L 
+*
+ = {ε, 0, 10, 00, 010, 100, 1010, 000, . . .}
+Since an arbitrary string in L
+ n  
+is of the form x
+ 1 
+x
+ 2
+ · · · x
+ n
+, for xi ∈ L and
+L
+ * 
+= [ n≥0  L
+ n
+, one can easily observe that L∗ = {x
+ 1 
+x
+ 2
+ · · · x
+ n
+ | n ≥ 0 and xi
+ 
+∈ L, for 1 ≤ i ≤ n}
+Thus, a typical string in L∗ is a concatenation of finitely many strings of L.
+3. Note that, the Kleene star of the language L = {0, 1} over the alphabet Σ = {0, 1} is 
+L ∗ = L 
+0
+ ∪ L 
+1 
+∪ L 
+2
+ ∪ · · · 
+= {ε} ∪{0, 1} ∪{00, 01, 10, 11} ∪· · · 
+= {ε, 0, 1, 00, 01, 10, 11, · · · } 
+= the set of all strings over Σ.
+Dr. Sri Preethaa K R / SCOPE/ VIT13
+
+Basic terminologies
+4. The positive closure of a language L is denoted by L 
++
+ is defined as L 
++
+ = Union of L
+ 2
+  where n>=1
+Thus, L 
+*
+ = L 
++
+ ∪ {ε}
+Exercise :
+1.The set of all strings over {a, b, c} that have ac as substring can be written as {xacy | x, y ∈ {a, b, c} ∗ }.
+2.The set of all strings over {a, b} in which every occurrence of b is not before an occurrence of a.
+3.The set of all strings over some alphabet Σ with equal number of a 0 s and b 0 s
+4.The set of all strings over some alphabet Σ with no consecutive a 0 s.
+5.The set of all strings over some alphabet Σ that have an a in the 5th position from the right
+Dr. Sri Preethaa K R / SCOPE/ VIT14
+
+Basic terminologies
+String Properties:
+•P1 Recall that concatenation of languages is associative. 
+•P2 Since concatenation of strings is not commutative, we have L1. L2 != L2. L1, in general.
+•P3 L{ε} = {ε}L = L. 
+•P4 L∅ = ∅L = ∅. ∅L = ∅ as well. 
+•P5 Distributive Properties:
+1. (L1 ∪ L2)L3 = L1L3 ∪ L2L3.
+2. L1(L2 ∪ L3) = L1L2 ∪ L1L3.
+•P6 If L1 ⊆ L2 and L3 ⊆ L4, then L1L3 ⊆ L2L4. 
+•P7 ∅∗ = {ε}. 
+•P8 {ε} ∗= {ε}. 
+•P9 If ε ∈L, then L ∗ = L +.
+• P10 L ∗L = LL∗ = L +.
+Dr. Sri Preethaa K R / SCOPE/ VIT15
+
+Strings and Languages (3)
+•Concatenation: if x and y are strings, then xy is the string obtained by placing a copy of y 
+immediately after a copy of x
+•x = a
+1
+a
+2
+ ...a
+i
+, y = b
+1
+b
+2
+ ...b
+j
+•xy = a
+1
+a
+2
+ ...a
+i
+b
+1
+b
+2
+ ...b
+j
+•Example: x = 01101, y = 110, xy = 01101110
+•xe = ex = x
+16
+
+Strings and Languages (4)
+•Power of an Alphabet: 
+k
+ = the set of strings of length k with symbols from   
+•Example:  = {0, 1}
+•
+1
+ =  = {0, 1} 
+•
+2
+ = {00, 01, 10, 11} 
+•
+0
+ =  
+•Question: How many strings are there in 
+3
+?
+•The set of all strings over  is denoted 
+*
+ 
+•
+*
+ = 
+0
+  
+1
+  
+2
+  
+3
+  ...
+•Also 
+•
++
+ =  
+1
+  
+2
+  
+3
+  ...
+•
+*
+ = 
++
+  
+•
++
+ = 
+*
+ - 
+17
+
+Strings and Languages (5)
+•Substring: any string of consecutive characters in some string w
+•If w = abc
+•e, a, ab, abc are substrings of w
+•Prefix and suffix:
+•if w = vu
+•v is a prefix of w
+•u is a suffix of w
+•Example
+•If w = abc
+•a, ab , abc are prefixes of w
+•c, bc, abc are suffixes of w
+18
+
+Strings and Languages (6)
+•Suppose:  S is the string  banana
+•Prefix  :  ban,  banana
+•Suffix  :  ana, banana
+•Substring :  nan, ban, ana, banana
+19
+
+Strings and Languages (7)
+•Language: set of strings chosen from some alphabet
+•A language is a subset of 
+*
+•Example of languages:
+•The set of valid Arabic words
+•The set of strings consisting of n 0’s followed by n 1’s
+•{, 01, 0011, 000111, ...}
+• The set of strings with equal number of 0’s and 1’s
+•{, 01, 10, 0011, 0101, 1010, 1001, 1100, ...}
+•Empty language:  = { }
+•The language  consisting of the empty string
+•Note:   
+20
+
+Strings and Languages (8)
+•Can concatenate languages
+• L
+1
+L
+2
+ = {xy | x  L
+1
+, y  L
+2
+}
+•L
+n
+ = L concatenated with itself n times
+•L
+0
+ = {}; L
+1
+ = L
+•Star-closure
+•L
+*
+ = L
+0
+  L
+1
+  L
+2
+  
+•L
++
+  = L
+*
+  -  L
+0
+ 
+•Languages can be finite or infinite
+• L = {a, aba, bba}
+• L = {a
+n
+ | n > 0}
+21
+
+Strings and Languages (9)
+OPERATIONDEFINITION
+union of L and M 
+written  L  M
+concatenation of L 
+and M written  LM
+Kleene closure of L   
+written L*
+positive closure of L 
+written  L
++
+L  M = {s | s is in L or s is in M}
+LM = {st | s is in L and t is in M}
+L
++ 
+=  L
+i
+,  i=1,.., 
+L* denotes “zero or more concatenations of “ L
+L* =  L
+i
+ , i=0,.., 
+L
++
+ denotes “one or more concatenations of “ L
+L
++
+  = LL
+*
+22
+
+Strings and Languages (10)
+L = {A, B, ..., Z, a, b, ...z}      D = {1, 2, ..., 9}
+L  D = the set of letters and digits
+LD = all strings consisting of a letter followed by a digit
+L
+2 
+= the set of all two-letter strings 
+L
+4 
+= L
+2 
+L
+2 
+= the set of all four-letter strings
+L* = { All possible strings of  L plus  },  L
++ 
+= L* - 
+D
++
+ = set of strings of  one or more digits
+L (L  D ) = set of all strings consisting of a letter followed by a a letter or a digit
+ L (L  D )* = set of all strings consisting of letters and digits beginning with a  letter
+23
+
+Strings and Languages (11)
+•The language L consists of strings over {a,b} in which each string begins 
+with an a should have an even length
+•aa, ab  L
+•aaaa,aaab,aaba,aabb,abaa,abab,abba,abbb   L
+•baa  L
+•a  L
+24
+
+Strings and Languages (12)
+•The language L consists of strings over {a,b} in which each occurring 
+of b is immediately preceded by an a
+•  L
+•a  L
+•abaab  L
+•bb  L
+•bab  L
+•abb  L
+25
+
+Strings and Languages (13)
+•Let X = {a,b,c} and Y = {abb, ba}. Then
+•XY = {aabb, babb, cabb, aba, bba, cba}
+•X
+0
+ = {}
+•X
+1
+ = X = {a,b,c}
+•X
+2
+ = XX = {aa,ab,ac,ba,bb,bc,ca,cb,cc}
+•X
+3
+ = XXX = 
+{aaa,aab,aac,aba,abb,abc,aca,acb,acc,baa,bab,bac,bba,bbb,bbc,bca,bcb,bcc,caa,cab,
+cac,cba,cbb,cbc,cca,ccb,ccc}
+26
+
+Strings and Languages (14)
+•The language L = {a,b}
+*
+{bb}{a,b}
+*
+ = 
+*
+{bb}
+*
+•consists of the strings over {a,b} that contain the substring bb
+•bb  L
+•abb  L
+•bbb  L
+•aabb  L
+•bbaaa  L
+•bbabba  L
+•abab  L
+•bab  L
+•b  L
+27
+
+Strings and Languages (15)
+•Let L be the language that consists of all strings that begin with aa or end with bb
+•L
+1
+ = {aa}{a,b}
+*
+•L
+2
+ = {a,b}
+*
+{bb}
+•L = L
+1
+  L
+2
+  = {aa}{a,b}
+*  
+ {a,b}
+*
+{bb}
+•bb  L
+•abb  L
+•bbb  L
+•aabb  L
+•bbaaa  L
+•bbabba  L
+•abab  L
+•bab  L
+•ba  L
+28
+
+Strings and Languages (16)
+•Let L
+1
+ = {bb} and L
+2
+ = {, bb, bbbb} over b
+•The languages L
+1
+*
+  
+and L
+2
+*
+ 
+both contain precisely the strings 
+consisting of an even number of b’s.
+• , with length zero, is an element of  L
+1
+*
+  
+and L
+2
+*
+ 
+29
+
+Strings and Languages (17)
+•What is the language of all even-length strings over {a,b}
+•L = {aa, bb, ab, ba}
+*
+ = (aa|bb|ab|ba)
+* 
+•What is the language of all odd-length strings over {a,b}
+•L = {a,b}
+*
+ - {aa, bb, ab, ba}
+*
+ or
+•L = {a,b}{aa, bb, ab, ba}
+* 
+or
+•L = {aa, bb, ab, ba}
+* 
+{a,b}
+ 
+30

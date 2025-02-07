@@ -9,6 +9,7 @@ import YoutubeSummarizer from './components/YoutubeSummarizer'
 import FC from "./components/FC"
 import Verify from './components/Verify'
 import FlashCards from './components/FlashCards'
+import Summary from './components/Summary'
 const App = () => {
   return (
     <div>
@@ -17,10 +18,11 @@ const App = () => {
         <Route path = "/login" element = {< Login/>} />
         <Route path = "/" element = {<Landing />} />
         <Route path = "/dashboard" element = {<Dashboard />} />
-        <Route path = "/youtubeSummarizer" element = {<YoutubeSummarizer />} />
         <Route path = "/verify" element = {<Verify />} />
         <Route path = "/flash-card-form" element = {<FC />} />
         <Route path = "/flash-cards" element = {<FlashCards />} />
+        <Route path="/youtubeSummarizer" element={<YoutubeSummarizer />} />
+        <Route path="/youtubeSummarizer/summary" element={<Summary />} />
       </Routes>
 
       <Footer />
