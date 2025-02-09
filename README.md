@@ -12,3 +12,4 @@ PrepMate is an AI-driven platform designed to enhance exam preparation for VIT U
     - npm i
     - npm run dev
     
+  - After opening the landing page, refresh it again to avoid components getting overlapped
