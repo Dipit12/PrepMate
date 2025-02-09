@@ -77,22 +77,22 @@ export default function FC() {
                     <h3 className="text-white font-poppins text-2xl font-[600] mt-5">Upload your document below</h3>
                 </div>
 
-                <form onSubmit={handleSubmit} className="flex flex-col items-center mt-20">
+                <form onSubmit={handleSubmit} className=" relative flex flex-col items-center mt-20">
                         <input 
                             type="file"
                             accept=".pdf,.ppt,.pptx"
                             onChange={handleFileChange}
-                            className="mt-70 ml-85 p-2 rounded-md border-1 w-[500px] text-white focus:outline"
+                            className="absolute top-75 left-90 p-2 rounded-md border-1 w-[500px] text-white focus:outline"
                         />
                         <button 
                             type="submit" 
                             disabled={isLoading}
-                            className="mt-8 ml-85 w-[500px] h-[40px] bg-[rgba(0,134,255,1)] rounded-xl text-white text-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+                            className="absolute top-85 left-90 mt-5 w-[500px] h-[40px] bg-[rgba(0,134,255,1)] rounded-xl text-white text-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
                         >
                             {isLoading ? "Processing..." : "Upload"}
                         </button>
                         {error && (
-                            <p className="mt-4 text-red-500">{error}</p>
+                            <p className=" absolute top-105 left-120 mt-4 text-red-500 w-[200px]">{error}</p>
                         )}
                 </form>
             </div>

@@ -76,7 +76,7 @@ const YoutubeSummarizer = () => {
                             value={videoUrl.link}
                             onChange={handleChange}
                             placeholder="Enter Youtube Video URL"
-                            className="mt-90 ml-115 p-2 rounded-md border-b-1 w-[500px] placeholder-white text-white focus:outline-none"
+                            className="mt-90 ml-100 p-2 rounded-md border-b-1 w-[500px] placeholder-white text-white focus:outline-none"
                         />
 
                         {errorMessage && (
@@ -85,7 +85,7 @@ const YoutubeSummarizer = () => {
 
                         <button
                             type="submit"
-                            className="mt-13 ml-115 w-[500px] h-[40px] bg-[rgba(0,134,255,1)] rounded-xl text-white text-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="mt-13 ml-95 w-[500px] h-[40px] bg-[rgba(0,134,255,1)] rounded-xl text-white text-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             disabled={loading}
                         >
                             {loading ? "Loading..." : "Upload"}

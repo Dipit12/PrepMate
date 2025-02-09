@@ -32,7 +32,7 @@ const FlashCards = () => {
             style={{ backgroundImage: `url(${component})` }}
         >
             <Navbar isDashboard={true} text="Sign Out" />
-            <div className="flex flex-col justify-between mt-10 ml-10 space-y-20">
+            <div className="flex flex-col justify-between mt-10 ml-50 space-y-20">
                 {rows.map((row, rowIndex) => (
                     <div key={rowIndex} className="flex space-x-8">
                         {row.map((card, cardIndex) => (

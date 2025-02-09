@@ -57,11 +57,11 @@ const Login = () => {
   };
 
   return (
-    <div className='flex justify-center items-center h-screen bg-black-900'>
+    <div className='flex justify-center items-center h-screen bg-gray-900'>
       <div className='w-[1300px] h-[650px] bg-[#1E1E1E] rounded-3xl flex shadow-lg'>
         
         {/* Left Side: Logo */}
-        <div className='absolute top-80 left-30 w-[600px] flex justify-center'>
+        <div className='absolute top-80 left-35 w-[600px] flex justify-center'>
           <img src={PMlogo} className='w-[400px]' alt='PM Logo' />
         </div>
 
@@ -78,7 +78,7 @@ const Login = () => {
               <input
                 type='email'
                 placeholder='Your Email Address'
-                className='p-3 border-b-2 w-full border-gray-600 placeholder-white text-white bg-transparent focus:outline-none'
+                className=' mt-10 p-3 border-b-2 w-full border-gray-600 placeholder-white text-white bg-transparent focus:outline-none'
                 name='email'
                 value={loginData.email}
                 onChange={handleLoginChange}
@@ -114,10 +114,10 @@ const Login = () => {
           {/* Navigation Links */}
           <div className='text-center'>
             <p>Don't have an account? 
-              <Link to='/register' className='ml-1 text-[#0086FF] font-bold text-lg hover:underline'>Sign up</Link>
+              <Link to='/register' className='ml-1 text-[#0086FF] font-bold text-lg hover:underline'> Sign up</Link>
             </p>
             <p className='mt-4'>Forgot your password? 
-              <Link to='/reset' className='ml-1 text-[#0086FF] font-bold text-lg hover:underline'>Reset</Link>
+              <Link to='/reset' className='ml-1 text-[#0086FF] font-bold text-lg hover:underline'> Reset</Link>
             </p>
           </div>
         </div>
