@@ -13,3 +13,6 @@ PrepMate is an AI-driven platform designed to enhance exam preparation for VIT U
     - npm run dev
     
   - After opening the landing page, refresh it again to avoid components getting overlapped
+
+## 3rd Feature - Learn with AI
+  - As of now our team, has thought of creating a RAG Application, where in a user can for example upload a book and then could ask any questions based on the content of the book, we would be using vector embeddings and semantic search to implement this feature 
